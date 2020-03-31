@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<parameter name="jenkinsJobName" value="ALL" />
+	<parameter name="runningDeviceMode" value="" />
+	<parameter name="environmentUserName" value="alrgautouser@gmail.com" />
+	<parameter name="environmentName" value="ALRGQA_desktop" />
+	<parameter name="startLoggingFromMain" value="true" />
+	<parameter name="testCycleName" value="" />
+	<parameter name="environmentPassword" value="Alrg@user1" />
+	<parameter name="updateTestStatusToJIRA" value="no" />
+	<parameter name="environmentUrl" value="" />
+	<listeners>
+		<listener class-name="com.elliemae.core.listener.RetryListener" />
+		<listener class-name="com.elliemae.core.listener.PostTestListener" />
+		<listener class-name="com.elliemae.alrg.listener.TestNGCustomReportListener" />
+	</listeners>
+	<test name="Chrome">
+		<parameter name="deviceType" value="" />
+		<parameter name="deviceUserName" value="" />
+		<parameter name="port" value="" />
+		<parameter name="testObjectAccessCode" value="" />
+		<parameter name="loanFolder" value="" />
+		<parameter name="browserName" value="Chrome" />
+		<parameter name="deviceOrientation" value="" />
+		<parameter name="version" value="" />
+		<parameter name="deviceName" value="" />
+		<parameter name="platform" value="Web" />
+		<classes>
+			<class name="com.elliemae.alrg.login.DesktopLoginTest">
+				<methods>
+					<exclude name="validLogin" />
+					<exclude name="loginInvalidCredential" />
+					<exclude name="verifyLoginUI" />
+				</methods>
+			</class>
+			<class name="com.elliemae.alrg.globalsearch.DesktopGlobalSearchTest">
+				<methods>
+					<exclude name="verifySearchLabel" />
+					<exclude name="verifySearchContentFilters" />
+					<exclude name="verifySearchTabLinks" />
+				</methods>
+			</class>
+			<class name="com.elliemae.alrg.searchresult.DesktopSearchResultTest">
+				<methods>
+					<exclude name="verifyTypeAhead" />
+					<exclude name="verifySearchClick" />
+					<exclude name="verifySearchResults" />
+					<exclude name="verifySearchResultDocument" />
+				</methods>
+			</class>
+			<class name="com.elliemae.alrg.manageusers.DesktopManageUsersTest">
+				<methods>
+					<exclude name="verifyColumnHeaders" />
+					<exclude name="verifyUserSearch" />
+					<exclude name="verifyAddImportUser" />
+					
+				</methods>
+			</class>
+			<class name="com.elliemae.alrg.useraccount.DesktopUserAccountTest">
+					<methods>
+					<exclude name="verifyUserAccountsUI" />
+					</methods>			
+			</class>
+
+			<class name="com.elliemae.alrg.ealerts.DesktopEAlertsTest">
+					<methods>
+					<exclude name="verifyEAlertSave" />
+					</methods>			
+			</class>
+			<class name="com.elliemae.alrg.home.DesktopHomeTest">
+					<methods>
+					<include name="verifyPreferences" />
+					<include name= "verifyWidgetHeader" />
+					</methods>			
+			</class>
+			<class name="com.elliemae.alrg.agencyupdates.DesktopAgencyUpdatesTest">
+					<methods>
+					<include name="verifyUpdateDetails" />
+					<include name= "" />
+					</methods>			
+			</class>
+		</classes>
+	</test> <!-- Chrome -->
+</suite> <!-- Suite -->

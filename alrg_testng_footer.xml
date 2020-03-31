@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <parameter name="jenkinsJobName" value="ALL"/>
+  <parameter name="runningDeviceMode" value=""/>
+  <parameter name="environmentUserName" value="alrgautouser@gmail.com"/>
+  <parameter name="environmentName" value="ALRGQA_desktop"/>
+  <parameter name="startLoggingFromMain" value="true"/>
+  <parameter name="testCycleName" value=""/>
+  <parameter name="environmentPassword" value="Alrg@user1"/>
+  <parameter name="updateTestStatusToJIRA" value="no"/>
+  <parameter name="environmentUrl" value=""/>
+  <listeners>
+    <listener class-name="com.elliemae.core.listener.RetryListener"/>
+    <listener class-name="com.elliemae.core.listener.PostTestListener"/>
+    <listener class-name="com.elliemae.alrg.listener.TestNGCustomReportListener"/>
+  </listeners>
+  <test name="Chrome">
+    <parameter name="deviceType" value=""/>
+    <parameter name="deviceUserName" value=""/>
+    <parameter name="port" value=""/>
+    <parameter name="testObjectAccessCode" value=""/>
+    <parameter name="loanFolder" value=""/>
+    <parameter name="browserName" value="Chrome"/>
+    <parameter name="deviceOrientation" value=""/>
+    <parameter name="version" value=""/>
+    <parameter name="deviceName" value=""/>
+    <parameter name="platform" value="Web"/>
+    <classes>
+      <class name="com.elliemae.alrg.nav.DesktopHeaderFooterTest">   
+        <methods>
+          <include name="verifyFooter"/>
+        </methods>
+      </class> 
+    </classes>
+  </test> <!-- Chrome -->
+</suite> <!-- Suite -->
